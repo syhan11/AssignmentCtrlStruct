@@ -1,0 +1,108 @@
+Assignment #2-1: Process Customer Record
+
+Iput: 		customer's name, a purchase amount, and a tax code
+Procesing: 	convert tax code into appropriate tax percentage 
+			compute the sales tax
+			compute the total amount due
+Output: 	print the customer's name, purchase amount, sales tax and total amount due
+
+Psedo Code:
+	declare customer_name as string
+	declare tax_code as integer
+	declare purchase_amt, tax_rate, sales_tax and total_amt as double
+	
+	read customer's name into customer_name
+	read purchase amount into purchase_amt
+	read tax code into tax_code
+	case of tax_code
+		0:	tax_rate = 0.0
+		1:	tax_rate = 0.03
+		2:	tax_rate = 0.05
+		3:	tax_rate = 0.07
+		value-other: tax_rate = 1.0
+	end case
+		
+	if tax_rate < 1 
+	then
+		sales_tax = purchase_amt X tax_rate
+		total_amt = purchase_amt + sales_tax
+		print out customer_name, purchase_amt, sales_tx, and total_amt
+	else
+		print out error message
+	end if	
+		
+		
+	
+Assignment #2-2
+Input: 		an employee's number, pay rate, and the number of hours worked in a week
+Procesing:	validate maximum hours worked in a week
+			validate maximum hourly rate
+			if either above validatation failed
+			then 
+				set error_flag to TRUE
+			else	
+				set error_flag to FALSE 
+				compute weekly pay
+			
+Output: 	if error_flas is TRUE 
+			then 
+				print out an employee's number, pay rate, the number of hours worked in a week and an error message
+			else
+				print out an employee's number, pay rate, the number of hours worked in a week and employee's weekly pay.
+
+Psedo Code:
+	declare emp_number as string and set to NULL
+	declare pay_rate and no_hours as double and set to 0
+	declare over_time, over_time_pay and total_pay as double and set to 0
+	declare error_flag as boolean and set to FALSE
+	
+	read emp_number
+	read pay_rate
+	read no_hours
+	
+	if (pay_rate > 25.00) OR (no_hours > 60)
+	then
+		print "Employee Number: " and emp_number
+		print "Pay Rate: " and pay_rate
+		print "Numb of Hours Worked:" and no_hours
+		print "Error: Invalid pay rate or hours worked."
+	else
+		if no_hours > 35
+		then
+			over_time = no_hours - 35
+			over_time_pay = (pay_rate * over_time) * 1.5
+			no_hours = no_hours - over_time
+		end if	
+		
+		total_pay = over_time_pay + (pay_rate * no_hours)
+		print "Employee Number: " and emp_number
+		print "Pay Rate: " and pay_rate
+		print "Numb of Hours Worked:" and no_hours 
+		print "Total Pay: " and total_pay
+	end if	
+	
+	
+Test 1:		
+Employee Number: 201901		
+Pay Rate: 10.00			
+Numb of Hours Worked: 30			
+Total Pay: 300.00
+
+Test 2:		
+Employee Number: 199091		
+Pay Rate: 30.00			
+Numb of Hours Worked: 30			
+Error: Invalid pay rate or hours worked.
+
+Test 3:		
+Employee Number: 290190		
+Pay Rate: 25.00			
+Numb of Hours Worked: 65		
+Error: Invalid pay rate or hours worked.
+
+Test 4:
+Employee Number: 792851		
+Pay Rate: 10.00			
+Numb of Hours Worked: 45.5			
+Total Pay: 507.5
+	
